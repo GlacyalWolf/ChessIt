@@ -4,9 +4,9 @@ public class Torre{
     private boolean color;
 
     Torre(int x,int y,boolean color){
-        this.color=color;
-        this.x=x;
-        this.y=y;
+        this.color = color;
+        this.x = x;
+        this.y = y;
     }
 
     public void setX(int x) {
