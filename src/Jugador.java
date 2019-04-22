@@ -18,6 +18,9 @@ public class Jugador{
             System.out.print("Tu color asginado es el blanco.");
         }
 
+        Torre torrel = new Torre(0,0);
+        Torre torrer = new Torre(0,7);
+
     }
 
 }
