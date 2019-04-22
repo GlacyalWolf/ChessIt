@@ -24,25 +24,7 @@ public class Caballo {
         int x1=x;
         int mov=0;
 
-        while(y1>0){
-            mov++;
-            y1--;
-        }
-        y1=y;
-        while(y1<7){
-            mov++;
-            y1++;
-        }
 
-        while(x1>0){
-            mov++;
-            x1--;
-        }
-        x1=x;
-        while(x1<7){
-            mov++;
-            x1++;
-        }
         return mov;
     }
 }
