@@ -51,17 +51,18 @@ public class Board {
     public void printBoard(){
         int num = 7;
         System.out.println("   0  1  2  3  4  5  6  7");
+        System.out.println("  ________________________________");
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if(board[i][j].getIsPiece() && j!=0 && j!=8) {
-                    System.out.print(board[i][j-1].getRowNum() + "" + board[i][j-1].getNumCol() + " ");
+                    System.out.print("|" + board[i][j-1].getRowNum() + "" + board[i][j-1].getNumCol() + "|");
                 }
                 else if (!board[i][j].getIsPiece() && j!=0 && j!=8){
                     if(board[i][j].getIsPossibleMoving()) {
-                        System.out.print(" X ");
+                        System.out.print("|X|");
                     }
                     else{
-                        System.out.print("   ");
+                        System.out.print("|  |");
                     }
                 }
                 else{
@@ -69,18 +70,19 @@ public class Board {
                 }
             }
             if(board[i][7].getIsPiece()) {
-                System.out.print(board[i][7].getRowNum() + "" + board[i][7].getNumCol());
+                System.out.print("|" + board[i][7].getRowNum() + "" + board[i][7].getNumCol() +"|");
             }
             else {
                 if(board[i][7].getIsPossibleMoving()) {
-                    System.out.print(" X ");
+                    System.out.print("|X|");
                 }
                 else{
-                    System.out.print("   ");
+                    System.out.print("|  |");
                 }
             }
             num--;
             System.out.println();
         }
+        System.out.println("  --------------------------------");
     }
 }

@@ -25,7 +25,7 @@ public class Torre extends Ficha{
             String sX = String.valueOf(x);
             String sY1 = String.valueOf(y1);
             String con = sX + sY1;
-            int resultado = Integer.parseInt(con)
+            int resultado = Integer.parseInt(con);
         }
         while(x1>0){
             countPosicion++;
