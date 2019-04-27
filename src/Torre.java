@@ -3,7 +3,7 @@ public class Torre extends Ficha{
     String nombre;
 
     Torre(){
-        nombre = "P";
+        nombre = "T";
     }
 
     private void posibleMovimiento(int x,int y){
