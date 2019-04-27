@@ -25,10 +25,10 @@ public class Ficha {
                 piezas[i] = inicializeAlfil();
             }
             else if(i<30){
-                piezas[i] = inicializeQueen();
+                piezas[i] = inicializeReina();
             }
             else {
-                piezas[i] = inicializeKing();
+                piezas[i] = inicializeRei();
             }
         }
         return piezas;
@@ -41,5 +41,46 @@ public class Ficha {
             return torres[i];
         }
     }
+
+    private Caballo inicializeCaballo(){
+        Caballo caballos[]= new Caballo[4];
+        for (int i = 0; i<2; i++){
+            caballos[i] = new Caballo();
+            return caballos[i];
+        }
+    }
+
+    private Peon inicializePeon(){
+        Peon peones[]= new Peon[16];
+        for (int i = 0; i<2; i++){
+            peones[i] = new Peon();
+            return peones[i];
+        }
+    }
+
+    private Alfil inicializeAlfil(){
+        Alfil alfils[]= new Alfil[4];
+        for (int i = 0; i<2; i++){
+            alfils[i] = new Alfil();
+            return alfils[i];
+        }
+    }
+
+    private Reina inicializeReina(){
+        Reina reinas[]= new Reina[2];
+        for (int i = 0; i<2; i++){
+            reinas[i] = new Reina();
+            return reinas[i];
+        }
+    }
+
+    private Rei inicializeRei(){
+        Rei reis[]= new Rri[2];
+        for (int i = 0; i<2; i++){
+            reis[i] = new Rei();
+            return reis[i];
+        }
+    }
+
 }
 

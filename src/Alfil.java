@@ -1,4 +1,4 @@
-public class Alfil {
+public class Alfil extends  {
     private int x;
     private int y;
     private boolean color;
@@ -12,6 +12,10 @@ public class Alfil {
             mov++;
             y1++;
             x1++;
+            String sX1 = String.valueOf(x1);
+            String sY = String.valueOf(y);
+            String con = sX1 + sY;
+            int resultado = Integer.parseInt(con);
         }
         y1=y;
         x1=x;
@@ -19,6 +23,10 @@ public class Alfil {
             mov++;
             y1--;
             x1--;
+            String sX1 = String.valueOf(x1);
+            String sY = String.valueOf(y);
+            String con = sX1 + sY;
+            int resultado = Integer.parseInt(con);
         }
 
         y1=y;
@@ -28,6 +36,10 @@ public class Alfil {
             mov++;
             x1--;
             y1++;
+            String sX1 = String.valueOf(x1);
+            String sY = String.valueOf(y);
+            String con = sX1 + sY;
+            int resultado = Integer.parseInt(con);
         }
 
         y1=y;
@@ -36,6 +48,10 @@ public class Alfil {
             mov++;
             x1++;
             y1--;
+            String sX1 = String.valueOf(x1);
+            String sY = String.valueOf(y);
+            String con = sX1 + sY;
+            int resultado = Integer.parseInt(con);
         }
         return mov;
     }
