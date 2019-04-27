@@ -1,11 +1,10 @@
-import org.jetbrains.annotations.Contract;
+
 
 public class Ficha {
     protected int rowNum;
     protected int numCol;
     protected boolean isAlive;
     protected Ficha piezas[];
-    @Contract(pure = true)
     Ficha() {
         isAlive = true;
     }

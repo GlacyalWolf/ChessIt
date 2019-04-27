@@ -6,7 +6,7 @@ public class Torre extends Ficha{
         nombre = "P";
     }
 
-    private int[] posibleMovimiento(int x,int y){
+    private void posibleMovimiento(int x,int y){
         int y1=y;
         int x1=x;
         int countPosicion=-1;
