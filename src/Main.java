@@ -18,12 +18,6 @@ public class Main {
         //Jugador jugador2 = new Jugador(mail2,false);
         System.out.println();
 
-        int vol[];
-        //vol=Torre.posibleMovimiento(2,3);
-        for (int i=0;i<vol.length;i++){
-            System.out.print(vol[i]);
-            System.out.print(" , ");
-        }
 
     }
 }

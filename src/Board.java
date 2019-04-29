@@ -50,7 +50,7 @@ public class Board {
     }
     public void printBoard(){
         int num = 7;
-        System.out.println("   0  1  2  3  4  5  6  7");
+        System.out.println("    0   1   2   3   4   5   6   7");
         System.out.println("  ________________________________");
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -84,5 +84,11 @@ public class Board {
             System.out.println();
         }
         System.out.println("  --------------------------------");
+    }
+    public void setPosibleMoving(int numCol, int numRow){
+        this.board[numCol][numRow].setPossibleMoving(true);
+    }
+    public boolean getIsOcupied(int numCol, int numRow){
+        return board[numCol][numRow].getIsPiece();
     }
 }

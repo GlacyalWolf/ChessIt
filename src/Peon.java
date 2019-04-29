@@ -1,21 +1,27 @@
 public class Peon extends Ficha{
-    private void posibleMovimiento(int x,int y){
+
+    String nombre;
+    String color;
+
+    public Peon(){
+        nombre = "P";
+        color = null;
+    }
+
+    protected void posibleMovimientoPeon(int x,int y, String color){
         int y1=y;
         int x1=x;
         int countPosicion=-1;
-        boolean color;
         boolean posicionInicial=true;
 
-        if (posicionInicial=true && color==true){
+        if (posicionInicial=true){
             y1=y1-2;
             }
-        if (posicionInicial=true && color==false){
-            y1=y1+2
+        if (posicionInicial=true){
+            y1=y1+2;
         }
 
-        }
-
-        if (color==true){
+        if (color.equals("B")){
             y1--;
             /** coger cordenadas **/
             if((x1>7 || x1<0) && (y1>7 || y1<0) ) {
@@ -71,10 +77,6 @@ public class Peon extends Ficha{
                 String con = sX + sY1;
                 int resultado = Integer.parseInt(con);
             }
-
-
+        }
     }
-    }
-
-
 }

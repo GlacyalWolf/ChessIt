@@ -1,133 +1,76 @@
-public class Caballo {
-    private int x;
-    private int y;
-    private boolean color;
+public class Caballo extends Ficha{
 
-    public void setX(int x) {
-        this.x = x;
+    String nombre;
+
+    protected Caballo(){
+        nombre = "C";
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-
-    static int[] posibleMovimiento(int x,int y){
+    protected void posibleMovimiento(int x,int y){
 
 
         int y1=y;
         int x1=x;
-        int countPosicion=-1;
         x1--;
         y1=y1+2;
         if((x1<7 || x1<0) && (y1<7 || y1>0) ){
-
-            countPosicion++;
-            String sX1 = String.valueOf(x1);
-            String sY1 = String.valueOf(y1);
-            String con = sX1 + sY1;
-            int resultado = Integer.parseInt(con);
-
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
         }
-
-
         x1=x;
         y1=y;
-
         x++;
         y1=y1+2;
         if((x1<7 || x1<0) && (y1<7 || y1>0)  ){
-
-            countPosicion++;
-            String sX1 = String.valueOf(x1);
-            String sY1 = String.valueOf(y1);
-            String con = sX1 + sY1;
-            int resultado = Integer.parseInt(con);
-            listaMov[countPosicion]=(resultado);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
         }
-
         x1=x;
         y1=y;
-
         x--;
         y1=y1-2;
         if((x1<7 || x1<0) && (y1<7 || y1>0) ){
-
-            countPosicion++;
-            String sX1 = String.valueOf(x1);
-            String sY1 = String.valueOf(y1);
-            String con = sX1 + sY1;
-            int resultado = Integer.parseInt(con);
-            listaMov[countPosicion]=(resultado);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
         }
-
         x1=x;
         y1=y;
-
         x1=x1+2;
         y1--;
         if((x1<7 || x1<0) && (y1<7 || y1>0)  ){
-
-            countPosicion++;
-            String sX1 = String.valueOf(x1);
-            String sY1 = String.valueOf(y1);
-            String con = sX1 + sY1;
-            int resultado = Integer.parseInt(con);
-            listaMov[countPosicion]=(resultado);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
         }
-
         x1=x;
         y1=y;
-
         x1=x1+2;
         y1++;
         if((x1<7 || x1<0) && (y1<7 || y1>0)  ){
-
-            countPosicion++;
-            String sX1 = String.valueOf(x1);
-            String sY1 = String.valueOf(y1);
-            String con = sX1 + sY1;
-            int resultado = Integer.parseInt(con);
-            listaMov[countPosicion]=(resultado);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
         }
-
         x1=x;
         y1=y;
-
         x1=x1-2;
         y1--;
         if((x1<7 || x1<0) && (y1<7 || y1>0)  ){
-
-            countPosicion++;
-            String sX1 = String.valueOf(x1);
-            String sY1 = String.valueOf(y1);
-            String con = sX1 + sY1;
-            int resultado = Integer.parseInt(con);
-            listaMov[countPosicion]=(resultado);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
         }
-
         x1=x;
         y1=y;
-
         x1=x1-2;
         y1++;
         if((x1<7 || x1<0) && (y1<7 || y1>0)  ){
-
-            countPosicion++;
-            String sX1 = String.valueOf(x1);
-            String sY1 = String.valueOf(y1);
-            String con = sX1 + sY1;
-            int resultado = Integer.parseInt(con);
-            listaMov[countPosicion]=(resultado);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
         }
-        return listaMov;
     }
 }

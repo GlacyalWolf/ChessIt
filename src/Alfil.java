@@ -1,59 +1,63 @@
-public class Alfil extends  {
-    private int x;
-    private int y;
-    private boolean color;
+public class Alfil extends Ficha {
+    String nombre;
 
-    static int posibilidades(int x,int y){
+    public Alfil(){
+        nombre = "A";
+    }
+
+    private void posibleMovimiento(int x,int y){
         int y1=y;
         int x1=x;
-        int mov=0;
 
         while(y1<7 && x1<7){
-            mov++;
             y1++;
             x1++;
-            String sX1 = String.valueOf(x1);
-            String sY = String.valueOf(y);
-            String con = sX1 + sY;
-            int resultado = Integer.parseInt(con);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
+            else{
+                continue;
+            }
         }
         y1=y;
         x1=x;
         while(y1<7 && x1>0){
-            mov++;
             y1--;
             x1--;
-            String sX1 = String.valueOf(x1);
-            String sY = String.valueOf(y);
-            String con = sX1 + sY;
-            int resultado = Integer.parseInt(con);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
+            else{
+                continue;
+            }
         }
 
         y1=y;
         x1=x;
 
         while(x1>0 && y1<7){
-            mov++;
             x1--;
             y1++;
-            String sX1 = String.valueOf(x1);
-            String sY = String.valueOf(y);
-            String con = sX1 + sY;
-            int resultado = Integer.parseInt(con);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
+            else{
+                continue;
+            }
         }
 
         y1=y;
         x1=x;
         while(x1<7 && y1>0){
-            mov++;
             x1++;
             y1--;
-            String sX1 = String.valueOf(x1);
-            String sY = String.valueOf(y);
-            String con = sX1 + sY;
-            int resultado = Integer.parseInt(con);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
+            }
+            else{
+                continue;
+            }
         }
-        return mov;
     }
 
 }

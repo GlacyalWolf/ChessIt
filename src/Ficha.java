@@ -1,86 +1,93 @@
-
+import sun.reflect.generics.visitor.Reifier;
 
 public class Ficha {
     protected int rowNum;
     protected int numCol;
     protected boolean isAlive;
-    protected Ficha piezas[];
+    protected Peon peones[];
+    protected Torre torres[];
+    protected Caballo caballos[];
+    protected Alfil alfiles[];
+    protected Reina reinas[];
+    protected Rey reyes[];
+    protected Board board;
     Ficha() {
         isAlive = true;
+        board = new Board();
     }
 
-    private Ficha[] createAllPiezas(Ficha piezas[]){
+    private void createAllPiezas(Ficha piezas[]){
 
-        for (int i = 0; i<32; i++){
-            if(i<16){
-                piezas[i] = inicializePeon();
-            }
-            else if(i<20){
-                piezas[i] = inicializeTorres();
-            }
-            else if(i<24){
-                piezas[i] = inicializeCaballo();
-            }
-            else if(i<28){
-                piezas[i] = inicializeAlfil();
-            }
-            else if(i<30){
-                piezas[i] = inicializeReina();
-            }
-            else {
-                piezas[i] = inicializeRei();
-            }
+        for (int i = 0; i<16; i++) {
+            peones[i]=new Peon();
         }
-        return piezas;
-    }
-
-    private Torre inicializeTorres(){
-        Torre torres[] = new Torre[4];
-        for (int i = 0; i<2; i++){
-            torres[i] = new Torre();
-            return torres[i];
+        for (int i = 0; i<4; i++) {
+            torres[i]=new Torre();
+        }
+        for (int i = 0; i<4; i++) {
+            caballos[i]=new Caballo();
+        }
+        for (int i = 0; i<4; i++) {
+            alfiles[i]=new Alfil();
+        }
+        for (int i = 0; i<2; i++) {
+            reinas[i]=new Reina();
+        }
+        for (int i = 0; i<2; i++) {
+            reyes[i]=new Rey();
         }
     }
+    public void seePossibleMoving(String nombre, int x, int y) {
+        if (nombre.equals("PB")){
 
-    private Caballo inicializeCaballo(){
-        Caballo caballos[]= new Caballo[4];
-        for (int i = 0; i<2; i++){
-            caballos[i] = new Caballo();
-            return caballos[i];
         }
     }
-
-    private Peon inicializePeon(){
-        Peon peones[]= new Peon[16];
-        for (int i = 0; i<2; i++){
-            peones[i] = new Peon();
-            return peones[i];
-        }
+    protected Peon getPeones(int x){
+        return peones[x];
     }
 
-    private Alfil inicializeAlfil(){
-        Alfil alfils[]= new Alfil[4];
-        for (int i = 0; i<2; i++){
-            alfils[i] = new Alfil();
-            return alfils[i];
-        }
+    public void setRowNum(int rowNum) {
+        this.rowNum = rowNum;
     }
 
-    private Reina inicializeReina(){
-        Reina reinas[]= new Reina[2];
-        for (int i = 0; i<2; i++){
-            reinas[i] = new Reina();
-            return reinas[i];
-        }
+    public void setNumCol(int numCol) {
+        this.numCol = numCol;
     }
-
-    private Rei inicializeRei(){
-        Rei reis[]= new Rri[2];
-        for (int i = 0; i<2; i++){
-            reis[i] = new Rei();
-            return reis[i];
-        }
+    public void setNombrePeonJugador1(int i){
+        peones[i].nombre = peones[i].nombre + "B";
     }
-
+    public void setNombrePeonJugador2(int x){
+        peones[x].nombre = peones[x].nombre + "N";
+    }
+    public void setNombreTorreJugador1(int i){
+        torres[i].nombre = torres[i].nombre + "B";
+    }
+    public void setNombreTorreJugador2(int x){
+        torres[x].nombre = torres[x].nombre + "N";
+    }
+    public void setNombreCaballoJugador1(int i){
+        caballos[i].nombre = caballos[i].nombre + "B";
+    }
+    public void setNombreCaballoJugador2(int x){
+        caballos[x].nombre = caballos[x].nombre + "N";
+    }
+    public void setNombreAlfilJugador1(int i){
+        alfiles[i].nombre = alfiles[i].nombre + "B";
+    }
+    public void setNombreAlfilJugador2(int x){
+        alfiles[x].nombre = alfiles[x].nombre + "N";
+    }
+    public void setNombreReinaJugador1(int i){
+        reinas[i].nombre = reinas[i].nombre + "B";
+    }
+    public void setNombreReinaJugador2(int x){
+        reinas[x].nombre = reinas[x].nombre + "N";
+    }
+    public void setNombreReyJugador1(int i){
+        reyes[i].nombre = reyes[i].nombre + "B";
+    }
+    public void setNombreReyJugador2(int x){
+        reyes[x].nombre = reyes[x].nombre + "N";
+    }
 }
 
