@@ -49,25 +49,25 @@ class Ficha{
     }
     void seePossibleMoving(String id, int x, int y, Board board) {
         if (id.equalsIgnoreCase("PB")){
-            peones[1].posibleMovimiento(x, y, "BLANCO");
+            peones[1].posibleMovimiento(x, y, "BLANCO", board);
         }
         if (id.equalsIgnoreCase("PN")){
-            peones[1].posibleMovimiento(x, y, "NEGRO");
+            peones[1].posibleMovimiento(x, y, "NEGRO", board);
         }
         if (id.equalsIgnoreCase("T")){
             torres[1].posibleMovimiento(x, y, board);
         }
         if (id.equalsIgnoreCase("C")){
-            caballos[1].posibleMovimiento(x, y);
+            caballos[1].posibleMovimiento(x, y, board);
         }
         if (id.equalsIgnoreCase("A")){
-            alfiles[1].posibleMovimiento(x, y);
+            alfiles[1].posibleMovimiento(x, y, board);
         }
         if (id.equalsIgnoreCase("D")){
-            reinas[1].posibleMovimiento(x, y);
+            reinas[1].posibleMovimiento(x, y, board);
         }
         if (id.equalsIgnoreCase("R")){
-            reyes[1].posibleMovimiento(x, y);
+            reyes[1].posibleMovimiento(x, y, board);
         }
     }
     void setRowNum(int rowNum) {

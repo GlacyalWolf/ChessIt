@@ -6,70 +6,66 @@ public class Caballo extends Ficha{
         nombre = "C";
     }
 
-    protected void posibleMovimiento(int x,int y, ){
+    protected void posibleMovimiento(int x,int y, Board board){
 
+        int y1=y+2;
+        int x1=x-1;
 
-        int y1=y;
-        int x1=x;
-        x1--;
-        y1=y1+2;
         if((x1<7 || x1<0) && (y1<7 || y1>0) ){
-            if (!getIsOccupied(x1, y1)) {
-                setPossibleMoving(x1, y1);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
             }
         }
-        x1=x;
-        y1=y;
-        x++;
-        y1=y1+2;
+
+        x1=x+1;
+        y1=y+2;
+
         if((x1<7 || x1<0) && (y1<7 || y1>0)  ){
-            if (!getIsOccupied(x1, y1)) {
-                setPossibleMoving(x1, y1);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
             }
         }
-        x1=x;
-        y1=y;
-        x--;
-        y1=y1-2;
+
+        x1=x-1;
+        y1=y-2;
+
         if((x1<7 || x1<0) && (y1<7 || y1>0) ){
-            if (!getIsOccupied(x1, y1)) {
-                setPossibleMoving(x1, y1);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
             }
         }
-        x1=x;
-        y1=y;
-        x1=x1+2;
-        y1--;
+
+        x1=x+2;
+        y1=y-1;
+
         if((x1<7 || x1<0) && (y1<7 || y1>0)  ){
-            if (!getIsOccupied(x1, y1)) {
-                setPossibleMoving(x1, y1);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
             }
         }
-        x1=x;
-        y1=y;
-        x1=x1+2;
-        y1++;
+        x1=x+2;
+        y1=y+1;
+
         if((x1<7 || x1<0) && (y1<7 || y1>0)  ){
-            if (!getIsOccupied(x1, y1)) {
-                setPossibleMoving(x1, y1);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
             }
         }
-        x1=x;
-        y1=y;
-        x1=x1-2;
-        y1--;
+
+        x1=x-2;
+        y1=y-1;
+
         if((x1<7 || x1<0) && (y1<7 || y1>0)  ){
-            if (!getIsOccupied(x1, y1)) {
-                setPossibleMoving(x1, y1);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
             }
         }
-        x1=x;
-        y1=y;
-        x1=x1-2;
-        y1++;
+        x1=x-2;
+        y1=y+1;
+
         if((x1<7 || x1<0) && (y1<7 || y1>0)  ){
-            if (!getIsOccupied(x1, y1)) {
-                setPossibleMoving(x1, y1);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
             }
         }
     }

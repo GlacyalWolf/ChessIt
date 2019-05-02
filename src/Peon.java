@@ -8,20 +8,20 @@ public class Peon extends Ficha{
         posicionInicial = true;
     }
 
-    protected void posibleMovimiento(int x,int y, String color){
+    protected void posibleMovimiento(int x,int y, String color, Board board){
         int y1=y;
         int x1=x;
 
         if (color.equalsIgnoreCase("blanco") && posicionInicial){
             y1=y1-2;
-            if (!getIsOccupied(x1, y1)) {
-                setPossibleMoving(x1, y1);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
             }
         }
         if ((color.equalsIgnoreCase("negro") && posicionInicial)){
             y1=y1+2;
-            if (!getIsOccupied(x1, y1)) {
-                setPossibleMoving(x1, y1);
+            if (!board.getIsOcupied(x1, y1)) {
+                board.setPosibleMoving(x1, y1);
             }
         }
 
@@ -29,24 +29,24 @@ public class Peon extends Ficha{
             y1--;
             /** coger cordenadas **/
             if((x1>7 || x1<0) && (y1>7 || y1<0) ) {
-                if (!getIsOccupied(x1, y1)) {
-                    setPossibleMoving(x1, y1);
+                if (!board.getIsOcupied(x1, y1)) {
+                    board.setPosibleMoving(x1, y1);
                 }
             }
 
             x1++;
             /** coger cordenadas **/
             if((x1<7 || x1>0) && (y1>7 || y1<0) ) {
-                if (!getIsOccupied(x1, y1)) {
-                    setPossibleMoving(x1, y1);
+                if (!board.getIsOcupied(x1, y1)) {
+                    board.setPosibleMoving(x1, y1);
                 }
             }
             x1=x;
             x1--;
             /** coger cordenadas **/
             if((x1>7 || x1<0) && (y1>7 || y1<0) ) {
-                if (!getIsOccupied(x1, y1)) {
-                    setPossibleMoving(x1, y1);
+                if (!board.getIsOcupied(x1, y1)) {
+                    board.setPosibleMoving(x1, y1);
                 }
             }
 
@@ -55,24 +55,24 @@ public class Peon extends Ficha{
             y1++;
             /** coger cordenadas **/
             if((x1>7 || x1<0) && (y1>7 || y1<0) ) {
-                if (!getIsOccupied(x1, y1)) {
-                    setPossibleMoving(x1, y1);
+                if (!board.getIsOcupied(x1, y1)) {
+                    board.setPosibleMoving(x1, y1);
                 }
             }
 
             x1++;
             /** coger cordenadas **/
             if((x1>7 || x1<0) && (y1>7 || y1<0) ) {
-                if (!getIsOccupied(x1, y1)) {
-                    setPossibleMoving(x1, y1);
+                if (!board.getIsOcupied(x1, y1)) {
+                    board.setPosibleMoving(x1, y1);
                 }
             }
             x1=x;
             x1--;
             /** coger cordenadas **/
             if((x1>7 || x1<0) && (y1>7 || y1<0) ) {
-                if (!getIsOccupied(x1, y1)) {
-                    setPossibleMoving(x1, y1);
+                if (!board.getIsOcupied(x1, y1)) {
+                    board.setPosibleMoving(x1, y1);
                 }
             }
         }

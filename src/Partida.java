@@ -122,6 +122,7 @@ public class Partida{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		while (isPartida == true) {
+			inicializeAll();
 			tablero.printBoard();
 			System.out.println("Turno jugador 1");
 			// Seleccionar pieza
@@ -231,6 +232,13 @@ public class Partida{
 		}
 		return null;
 	}
+	boolean getIsOccupied(int x, int y){
+		boolean isOccupied = tablero.getIsOcupied(x, y);
+		return isOccupied;
+	}
+	void setPossibleMoving(int x, int y){
+		tablero.setPosibleMoving(x, y);
+	}
 	String getNombre(int numCol, int numRow) {
 		for (int i = 0, x = 0; i < 8; i++, x = x + 2) {
 			if (ficha.peones[x].getNumCol() == numCol && ficha.peones[x].getRowNum() == numRow) {
@@ -259,13 +267,6 @@ public class Partida{
 			return ficha.reyes[0].nombre;
 		}
 		return null;
-	}
-	boolean getIsOccupied(int x, int y){
-		boolean isOccupied = tablero.getIsOcupied(x, y);
-		return isOccupied;
-	}
-	void setPossibleMoving(int x, int y){
-		tablero.setPosibleMoving(x, y);
 	}
 }
 	

@@ -1,5 +1,6 @@
-public class Board extends Partida{
+public class Board{
 
+    Partida partida;
     private Casilla[][] board;
 
     private static int setNumRow(int num){
@@ -57,7 +58,7 @@ public class Board extends Partida{
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if(board[i][j].getIsPiece() && j!=0 && j!=8) {
-                    System.out.print("|" + getNombre(j,i) + "|");
+                    System.out.print("|" + partida.getNombre(j,i) + "|");
                 }
                 else if (!board[i][j].getIsPiece() && j!=0 && j!=8){
                     if(board[i][j].getIsPossibleMoving()) {
@@ -72,7 +73,7 @@ public class Board extends Partida{
                 }
             }
             if(board[i][7].getIsPiece()) {
-                System.out.print("|" + getNombre(7,1) +"|");
+                System.out.print("|" + partida.getNombre(7,1) +"|");
             }
             else {
                 if(board[i][7].getIsPossibleMoving()) {
