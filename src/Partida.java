@@ -302,8 +302,7 @@ public class Partida{
 			toX = Integer.parseInt(br.readLine());
 			System.out.println("Columna: ");
 			toY = Integer.parseInt(br.readLine());
-		}
-		
+		}		
 		if (tablero.getIsOcupied(toX,toY) == false) {	
 			tablero.setIsOcupied(false, fromX,toY); //Cambia la posición donde estava en 
 			tablero.setIsOcupied(true, toX, toY);
