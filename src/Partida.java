@@ -16,14 +16,14 @@ public class Partida{
 	void inicializeAll(){
 		ficha.createAllPiezas();
 		for (int i = 0, x = 0, y = 1; i < 8; i++) {
-			ficha.peones[x].setNumCol(setNumColJugador1FirstRowPeon());
-			ficha.peones[x].setRowNum(1);
+			ficha.peones[x].setNumCol(i);
+			ficha.peones[x].setRowNum(6);
 			ficha.peones[x].nombre = ficha.peones[x].nombre + "B";
 			ficha.peones[x].setId("PB");
 			ficha.peones[x].setJugador(1);
 			x = x + 2;
-			ficha.peones[y].setNumCol((setNumColJugador1SecondRowPeon()));
-			ficha.peones[y].setRowNum(6);
+			ficha.peones[y].setNumCol(i);
+			ficha.peones[y].setRowNum(1);
 			ficha.peones[y].nombre = ficha.peones[y].nombre + "N";
 			ficha.peones[y].setId("PN");
 			ficha.peones[y].setJugador(2);
@@ -35,7 +35,7 @@ public class Partida{
 			} else {
 				ficha.torres[x].setNumCol(7);
 			}
-			ficha.torres[x].setRowNum(0);
+			ficha.torres[x].setRowNum(7);
 			ficha.torres[x].nombre = ficha.torres[x].nombre + "B";
 			ficha.torres[x].setId("T");
 			ficha.torres[x].setJugador(1);
@@ -45,7 +45,7 @@ public class Partida{
 			} else {
 				ficha.torres[y].setNumCol(7);
 			}
-			ficha.torres[y].setRowNum(7);
+			ficha.torres[y].setRowNum(0);
 			ficha.torres[y].nombre = ficha.torres[y].nombre + "N" ;
 			ficha.torres[y].setId("T");
 			ficha.torres[y].setJugador(2);
@@ -57,8 +57,8 @@ public class Partida{
 			} else {
 				ficha.caballos[x].setNumCol(6);
 			}
-			ficha.caballos[x].setRowNum(0);
-			ficha.caballos[x].nombre = ficha.torres[y].nombre + "B";
+			ficha.caballos[x].setRowNum(7);
+			ficha.caballos[x].nombre = ficha.caballos[y].nombre + "B";
 			ficha.caballos[x].setId("C");
 			ficha.caballos[x].setJugador(1);
 			x = x + 2;
@@ -67,7 +67,7 @@ public class Partida{
 			} else {
 				ficha.caballos[y].setNumCol(6);
 			}
-			ficha.caballos[y].setRowNum(7);
+			ficha.caballos[y].setRowNum(0);
 			ficha.caballos[y].nombre = ficha.caballos[y].nombre + "N";
 			ficha.caballos[y].setId("C");
 			ficha.caballos[y].setJugador(2);
@@ -79,7 +79,7 @@ public class Partida{
 			} else {
 				ficha.torres[x].setNumCol(5);
 			}
-			ficha.alfiles[x].setRowNum(0);
+			ficha.alfiles[x].setRowNum(7);
 			ficha.alfiles[x].nombre = ficha.alfiles[x].nombre + "B";
 			ficha.alfiles[x].setId("A");
 			ficha.alfiles[x].setJugador(1);
@@ -89,29 +89,29 @@ public class Partida{
 			} else {
 				ficha.alfiles[y].setNumCol(5);
 			}
-			ficha.alfiles[y].setRowNum(7);
+			ficha.alfiles[y].setRowNum(0);
 			ficha.alfiles[y].nombre = ficha.alfiles[y].nombre + "N";
 			ficha.alfiles[y].setId("A");
 			ficha.alfiles[y].setJugador(2);
 			y = y + 2;
 		}
 		ficha.reinas[0].setNumCol(3);
-		ficha.reinas[0].setRowNum(0);
+		ficha.reinas[0].setRowNum(7);
 		ficha.reinas[0].nombre = ficha.reinas[0].nombre + "B";
 		ficha.reinas[0].setId("D");
 		ficha.reinas[0].setJugador(1);
 		ficha.reinas[1].setNumCol(3);
-		ficha.reinas[1].setRowNum(7);
+		ficha.reinas[1].setRowNum(0);
 		ficha.reinas[1].nombre = ficha.reinas[1].nombre + "N";
 		ficha.reinas[1].setId("D");
 		ficha.reinas[1].setJugador(2);
 		ficha.reyes[0].setNumCol(4);
-		ficha.reyes[0].setRowNum(0);
+		ficha.reyes[0].setRowNum(7);
 		ficha.reyes[0].nombre = ficha.reyes[0].nombre + "B";
 		ficha.reyes[0].setId("R");
 		ficha.reyes[0].setJugador(1);
 		ficha.reyes[1].setNumCol(4);
-		ficha.reyes[1].setRowNum(7);
+		ficha.reyes[1].setRowNum(0);
 		ficha.reyes[1].nombre = ficha.reyes[1].nombre + "N";
 		ficha.reyes[1].setId("R");
 		ficha.reyes[1].setJugador(2);
@@ -123,7 +123,7 @@ public class Partida{
 
 		while (isPartida == true) {
 			inicializeAll();
-			tablero.printBoard();
+			tablero.printBoard(ficha);
 			System.out.println("Turno jugador 1");
 			// Seleccionar pieza
 			System.out.println("Jugador 1, selecciona la casilla de la pieza que quieras mover");
@@ -146,18 +146,6 @@ public class Partida{
 			ficha.seePossibleMoving(id, numCol, numRow, tablero);
 		}
 
-	}
-
-	protected int setNumColJugador1FirstRowPeon() {
-		int x1 = -1;
-		x1++;
-		return x1;
-	}
-
-	protected int setNumColJugador1SecondRowPeon() {
-		int x1 = -1;
-		x1++;
-		return x1;
 	}
 
 	protected String esNumeroValido(String movimiento) throws IOException {
