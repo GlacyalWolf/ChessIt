@@ -94,5 +94,35 @@ class Ficha{
     int getJugador() {
         return jugador;
     }
+
+    String getNombre(int numCol, int numRow) {
+        for (int i = 0, x = 0; i < 8; i++, x = x + 2) {
+            if (peones[x].getNumCol() == numCol && peones[x].getRowNum() == numRow) {
+                return peones[x].nombre;
+            }
+        }
+        for (int i = 0, x = 0; i < 2; i++, x = x + 2) {
+            if (torres[x].getNumCol() == numCol && torres[x].getRowNum() == numRow) {
+                return torres[x].nombre;
+            }
+        }
+        for (int i = 0, x = 0; i < 2; i++, x = x + 2) {
+            if (caballos[x].getNumCol() == numCol && caballos[x].getRowNum() == numRow) {
+                return caballos[x].nombre;
+            }
+        }
+        for (int i = 0, x = 0; i < 2; i++, x = x + 2) {
+            if (alfiles[x].getNumCol() == numCol && alfiles[x].getRowNum() == numRow) {
+                return alfiles[x].nombre;
+            }
+        }
+        if (reinas[0].getNumCol() == numCol && reinas[0].getRowNum() == numRow) {
+            return reinas[0].nombre;
+        }
+        if (reyes[0].getNumCol() == numCol && reyes[0].getRowNum() == numRow) {
+            return reyes[0].nombre;
+        }
+        return null;
+    }
 }
 

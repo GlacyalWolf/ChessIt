@@ -1,6 +1,5 @@
 public class Board{
 
-    Partida partida;
     private Casilla[][] board;
 
     private static int setNumRow(int num){
@@ -51,14 +50,14 @@ public class Board{
             }
         }
     }
-    public void printBoard(){
+    public void printBoard(Ficha ficha){
         int num = 7;
         System.out.println("    0   1   2   3   4   5   6   7");
         System.out.println("  ________________________________");
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if(board[i][j].getIsPiece() && j!=0 && j!=8) {
-                    System.out.print("|" + partida.getNombre(j,i) + "|");
+                    System.out.print("|" + ficha.getNombre(j,setNumRow(i)) + "|");
                 }
                 else if (!board[i][j].getIsPiece() && j!=0 && j!=8){
                     if(board[i][j].getIsPossibleMoving()) {
@@ -73,7 +72,7 @@ public class Board{
                 }
             }
             if(board[i][7].getIsPiece()) {
-                System.out.print("|" + partida.getNombre(7,1) +"|");
+                System.out.print("|" + ficha.getNombre(7,setNumRow(i)) +"|");
             }
             else {
                 if(board[i][7].getIsPossibleMoving()) {
