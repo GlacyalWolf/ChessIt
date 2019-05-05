@@ -12,7 +12,7 @@ public class Partida{
 
 	private Ficha ficha = new Ficha();
 	private Board tablero = new Board();
-
+	private Casilla casilla = new Casilla();
 	void inicializeAll(){
 		ficha.createAllPiezas();
 		for (int i = 0, x = 0, y = 1; i < 8; i++) {
@@ -120,30 +120,55 @@ public class Partida{
 	public void startPartida() throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+		boolean turno = true;
 		while (isPartida == true) {
-			inicializeAll();
-			tablero.printBoard();
-			System.out.println("Turno jugador 1");
-			// Seleccionar pieza
-			System.out.println("Jugador 1, selecciona la casilla de la pieza que quieras mover");
-			String movimiento = br.readLine();
-			while (movimiento.length() < 2 || movimiento.length() > 2) {
-				System.out.println("Coloca una posicion correcta");
-				movimiento = br.readLine();
+			if (turno=true) {
+				inicializeAll();
+				System.out.println("Turno jugador 1");
+				// Seleccionar pieza
+				System.out.println("Jugador 1, selecciona la casilla de la pieza que quieras mover");
+				String movimientoBlancas = br.readLine();
+				while (movimientoBlancas.length() < 2 || movimientoBlancas.length() > 2) {
+					System.out.println("Coloca una posicion correcta");
+					movimientoBlancas = br.readLine();
+				}
+				movimientoBlancas = esNumeroValido(movimientoBlancas);
+				int numero = Integer.parseInt(movimientoBlancas);
+				int numCol = numero / 10;
+				int numRow = numero % 10;
+				int[] movimientosList;
+				movimientosList = comprobarPosicion(numCol, numRow, tablero, ficha);
+				numCol = movimientosList[0];
+				numRow = movimientosList[1];		
+				// Ver si posiciï¿½n de blancas es valido
+				String id = findIdForPiecesPlayer1(numCol, numRow, ficha);
+				ficha.seePossibleMoving(id, numCol, numRow, tablero);
+				
+				turno = false;
+			} else {
+				inicializeAll();
+				System.out.println("Turno jugador 1");
+				// Seleccionar pieza
+				System.out.println("Jugador 1, selecciona la casilla de la pieza que quieras mover");
+				String movimientoNegras = br.readLine();
+				while (movimientoNegras.length() < 2 || movimientoNegras.length() > 2) {
+					System.out.println("Coloca una posicion correcta");
+					movimientoNegras = br.readLine();
+				}
+				movimientoNegras = esNumeroValido(movimientoNegras);
+				int numero = Integer.parseInt(movimientoNegras);
+				int numCol = numero / 10;
+				int numRow = numero % 10;
+				int[] movimientosList;
+				movimientosList = comprobarPosicion(numCol, numRow, tablero, ficha);
+				numCol = movimientosList[0];
+				numRow = movimientosList[1];
+					
+				// Ver si posiciï¿½n de blancas es valido
+				String id = findIdForPiecesPlayer1(numCol, numRow, ficha);
+				ficha.seePossibleMoving(id, numCol, numRow, tablero);
+				turno = true;
 			}
-			movimiento = esNumeroValido(movimiento);
-			int numero = Integer.parseInt(movimiento);
-			int numCol = numero / 10;
-			int numRow = numero % 10;
-			int[] movimientosList;
-			movimientosList = comprobarPosicion(numCol, numRow, tablero, ficha);
-			numCol = movimientosList[0];
-			numRow = movimientosList[1];
-
-			// Ver si posiciï¿½n de blancas es valido
-			String id = findIdForPiecesPlayer1(numCol, numRow, ficha);
-			ficha.seePossibleMoving(id, numCol, numRow, tablero);
 		}
 
 	}
@@ -268,5 +293,20 @@ public class Partida{
 		}
 		return null;
 	}
-}
 	
+	protected void mueveFicha(int fromX,int fromY ,int toX,int toY) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		while (tablero.getIsOcupied(toX,toY)==true) {
+			System.out.println("Posición ocupada. Introduce fila y columna donde quieras mover la pieza");
+			System.out.print("Fila: ");
+			toX = Integer.parseInt(br.readLine());
+			System.out.println("Columna: ");
+			toY = Integer.parseInt(br.readLine());
+		}
+		
+		if (tablero.getIsOcupied(toX,toY) == false) {	
+			tablero.setIsOcupied(false, fromX,toY); //Cambia la posición donde estava en 
+			tablero.setIsOcupied(true, toX, toY);
+		}
+	}
+}

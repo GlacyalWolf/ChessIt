@@ -93,4 +93,8 @@ public class Board{
     public boolean getIsOcupied(int numCol, int numRow){
         return board[numCol][numRow].getIsPiece();
     }
+
+    public void setIsOcupied (boolean isOcuppied,int numCol,int numRow) {
+		board[numCol][numRow].setIsPiece(isOcuppied);
+    }
 }
