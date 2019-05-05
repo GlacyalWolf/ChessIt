@@ -98,3 +98,4 @@ public class Board{
 		board[numCol][numRow].setIsPiece(isOcuppied);
     }
 }
+
