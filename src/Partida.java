@@ -141,7 +141,7 @@ public class Partida{
 			numCol = movimientosList[0];
 			numRow = movimientosList[1];
 
-			// Ver si posición de blancas es valido
+			// Ver si posiciï¿½n de blancas es valido
 			String id = findIdForPiecesPlayer1(numCol, numRow, ficha);
 			ficha.seePossibleMoving(id, numCol, numRow, tablero);
 		}
@@ -267,6 +267,118 @@ public class Partida{
 			return ficha.reyes[0].nombre;
 		}
 		return null;
+	}
+	void JaqueMateBlancas() {
+		//Creando clase para calcular el jaque mate de las piezas blancas
+		for (int i = 0; i < 8; i++){
+			//llamando a todos los peones negros para comprobar sus posibles movimientos
+			if (ficha.peones[i].nombre == "PN"){
+				//mierda seca: abajo supuestamente se deberia pillar los posibles movimientos de los peones
+				getPosibleMoving();
+				if (){
+					//mierda seca: aqui se deberia comprobar que alguno de los posibles movimientos coincide con la posicion del rei
+				}
+			}
+		}
+		for (int i = 0; i < 2; i++){
+			//llamando a todos los peones negros para comprobar sus posibles movimientos
+			if (ficha.torres[i].nombre == "TN"){
+
+				//mierda seca: abajo supuestamente se deberia pillar los posibles movimientos de las torres
+				getPosibleMoving();
+				if (){
+					//mierda seca: aqui se deberia comprobar que alguno de los posibles movimientos coincide con la posicion del rei
+				}
+			}
+		}
+		for (int i = 0; i < 2; i++){
+			if (ficha.caballos[i].nombre == "CN"){
+				//mierda seca
+				getPosibleMoving();
+				if (){
+					//mierda seca
+				}
+			}
+		}
+		for (int i = 0; i < 2; i++){
+			if (ficha.alfiles[i].nombre == "AN"){
+				//mierda seca
+				getPosibleMoving();
+				if (){
+					//mierda seca
+				}
+			}
+		}
+		if (ficha.reinas[1].nombre == "RN"){
+			//mierda seca
+			getPosibleMoving();
+			if (){
+				//mierda seca
+			}
+		}
+		if (ficha.reyes[1].nombre == "RN"){
+			//mierda seca
+			getPosibleMoving();
+			if (){
+				//mierda seca
+			}
+		}
+
+	}
+
+	void JaqueMateNegras() {
+		//Creando clase para calcular el jaque mate de las piezas negras
+		for (int i = 0; i < 8; i++){
+			if (ficha.peones[i].nombre == "PB"){
+				//mierda seca
+				getPosibleMoving();
+				if (){
+					//mierda seca
+				}
+			}
+		}
+		for (int i = 0; i < 2; i++){
+			if (ficha.torres[i].nombre == "TB"){
+				//mierda seca
+				getPosibleMoving();
+				if (){
+					//mierda seca
+				}
+			}
+		}
+		for (int i = 0; i < 2; i++){
+			if (ficha.caballos[i].nombre == "CB"){
+				//mierda seca
+				getPosibleMoving();
+				if (){
+					//mierda seca
+				}
+			}
+		}
+		for (int i = 0; i < 2; i++){
+			if (ficha.alfiles[i].nombre == "AB"){
+				//mierda seca
+				getPosibleMoving();
+				if (){
+					//mierda seca
+				}
+			}
+		}
+		if (ficha.reinas[1].nombre == "RB"){
+			//mierda seca
+			getPosibleMoving();
+			if (){
+				//mierda seca
+			}
+		}
+		if (ficha.reyes[1].nombre == "RB"){
+			//mierda seca
+			getPosibleMoving();
+			if (){
+				//mierda seca
+			}
+		}
+
 	}
 }
 	
