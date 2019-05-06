@@ -1,8 +1,14 @@
 public class Alfil extends Ficha {
     String nombre;
+    boolean isAlive;
 
     public Alfil(){
         nombre = "A";
+        isAlive = true;
+    }
+
+    void setIsAlive(boolean isAlive){
+        this.isAlive = isAlive;
     }
 
     protected void posibleMovimiento(int x,int y, Board board){

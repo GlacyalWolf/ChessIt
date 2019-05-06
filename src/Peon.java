@@ -2,10 +2,15 @@ public class Peon extends Ficha{
 
     String nombre;
     boolean posicionInicial;
+    boolean isAlive;
 
     public Peon(){
         nombre = "P";
         posicionInicial = true;
+        isAlive = true;
+    }
+    void setIsAlive(boolean isAlive){
+        this.isAlive = isAlive;
     }
 
     protected void posibleMovimiento(int x,int y, String color, Board board){

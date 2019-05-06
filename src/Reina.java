@@ -1,9 +1,16 @@
 public class Reina extends Ficha {
     String nombre;
+    boolean isAlive;
 
     Reina(){
         nombre = "D";
+        isAlive = true;
     }
+
+    void setIsAlive(boolean isAlive){
+        this.isAlive = isAlive;
+    }
+
     protected void posibleMovimiento(int x, int y, Board board) {
         int y1 = y;
         int x1 = x;

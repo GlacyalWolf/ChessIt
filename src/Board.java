@@ -52,16 +52,22 @@ public class Board{
     }
     public void printBoard(Ficha ficha){
         int num = 7;
+        int num2 = 0;
         System.out.println("    0   1   2   3   4   5   6   7");
         System.out.println("  ________________________________");
         for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0, h = -1; j < 8; j++, h++) {
                 if(board[i][j].getIsPiece() && j!=0 && j!=8) {
-                    System.out.print("|" + ficha.getNombre(j,setNumRow(i)) + "|");
+                    if (ficha.getIsAlive(h, num)) {
+                        System.out.print("|" + ficha.getNombre(h, num) + "|");
+                    }
+                    else{
+                        System.out.print("|  |");
+                    }
                 }
                 else if (!board[i][j].getIsPiece() && j!=0 && j!=8){
                     if(board[i][j].getIsPossibleMoving()) {
-                        System.out.print("|X|");
+                        System.out.print("|XX|");
                     }
                     else{
                         System.out.print("|  |");
@@ -72,11 +78,16 @@ public class Board{
                 }
             }
             if(board[i][7].getIsPiece()) {
-                System.out.print("|" + ficha.getNombre(7,setNumRow(i)) +"|");
+                if (ficha.getIsAlive(7, num)) {
+                    System.out.print("|" + ficha.getNombre(7, num) + "|");
+                }
+                else {
+                    System.out.print("|  |");
+                }
             }
             else {
                 if(board[i][7].getIsPossibleMoving()) {
-                    System.out.print("|X|");
+                    System.out.print("|XX|");
                 }
                 else{
                     System.out.print("|  |");
@@ -92,6 +103,9 @@ public class Board{
     }
     public boolean getIsOcupied(int numCol, int numRow){
         return board[numCol][numRow].getIsPiece();
+    }
+    public void setIsOcupied (boolean isOcuppied,int numCol,int numRow) {
+        board[numCol][numRow].setIsPiece(isOcuppied);
     }
 }
 

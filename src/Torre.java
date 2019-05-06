@@ -1,11 +1,16 @@
 public class Torre extends Ficha{
 
     String nombre;
+    boolean isAlive;
 
     Torre(){
         nombre = "T";
+        isAlive = true;
     }
 
+    void setIsAlive(boolean isAlive){
+        this.isAlive = isAlive;
+    }
 
     protected void posibleMovimiento(int x,int y, Board board){
         int y1=y;

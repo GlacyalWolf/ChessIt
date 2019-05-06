@@ -2,11 +2,17 @@ public class Rey extends Ficha{
 
     String nombre;
     Boolean isJaque;
+    boolean isAlive;
 
     // ♥
     Rey(){
         nombre = "R";
         isJaque = false;
+        isAlive = true;
+    }
+
+    void setIsAlive(boolean isAlive){
+        this.isAlive = isAlive;
     }
 
     public void setIsJaque(boolean isJaque){
