@@ -96,31 +96,49 @@ class Ficha{
     }
 
     String getNombre(int numCol, int numRow) {
-        for (int i = 0, x = 0; i < 8; i++, x = x + 2) {
+        for (int i = 0, x = 0, y=1; i < 8; i++, x = x + 2, y = y + 2) {
             if (peones[x].getNumCol() == numCol && peones[x].getRowNum() == numRow) {
                 return peones[x].nombre;
             }
+            if (peones[y].getNumCol() == numCol && peones[y].getRowNum() == numRow) {
+                return peones[y].nombre;
+            }
         }
-        for (int i = 0, x = 0; i < 2; i++, x = x + 2) {
+        for (int i = 0, x = 0, y = 1; i < 2; i++, x = x + 2, y = y + 2) {
             if (torres[x].getNumCol() == numCol && torres[x].getRowNum() == numRow) {
                 return torres[x].nombre;
             }
+            if (torres[y].getNumCol() == numCol && torres[y].getRowNum() == numRow) {
+                return torres[y].nombre;
+            }
         }
-        for (int i = 0, x = 0; i < 2; i++, x = x + 2) {
+        for (int i = 0, x = 0, y = 0; i < 2; i++, x = x + 2, y = y + 2) {
             if (caballos[x].getNumCol() == numCol && caballos[x].getRowNum() == numRow) {
                 return caballos[x].nombre;
             }
+            if (caballos[y].getNumCol() == numCol && caballos[y].getRowNum() == numRow) {
+                return caballos[y].nombre;
+            }
         }
-        for (int i = 0, x = 0; i < 2; i++, x = x + 2) {
+        for (int i = 0, x = 0, y = 0; i < 2; i++, x = x + 2, y = y + 2) {
             if (alfiles[x].getNumCol() == numCol && alfiles[x].getRowNum() == numRow) {
                 return alfiles[x].nombre;
+            }
+            if (alfiles[y].getNumCol() == numCol && alfiles[y].getRowNum() == numRow) {
+                return alfiles[y].nombre;
             }
         }
         if (reinas[0].getNumCol() == numCol && reinas[0].getRowNum() == numRow) {
             return reinas[0].nombre;
         }
+        if (reinas[1].getNumCol() == numCol && reinas[1].getRowNum() == numRow) {
+            return reinas[1].nombre;
+        }
         if (reyes[0].getNumCol() == numCol && reyes[0].getRowNum() == numRow) {
             return reyes[0].nombre;
+        }
+        if (reyes[1].getNumCol() == numCol && reyes[1].getRowNum() == numRow) {
+            return reyes[1].nombre;
         }
         return null;
     }

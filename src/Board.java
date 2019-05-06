@@ -94,3 +94,4 @@ public class Board{
         return board[numCol][numRow].getIsPiece();
     }
 }
+
