@@ -136,7 +136,7 @@ public class Partida {
             numCol = movimientosList[0];
             numRow = movimientosList[1];
 
-            // Ver si posici�n de blancas es valido
+            // Ver si posicion de blancas es valido
             String id = findIdForPiecesPlayer1(numCol, numRow, ficha);
             ficha.seePossibleMoving(id, numCol, numRow, tablero);
         }
@@ -208,7 +208,7 @@ public class Partida {
         } else {
             System.out.println("La posicion no corresponde a ninguna de tus casillas, vuelve a introducir otra");
             String movimiento = br.readLine();
-            while (movimiento.length() < 2 || movimiento.length() > 2) {
+            while (movimiento.length() != 2) {
                 System.out.println("Coloca una posicion correcta");
                 movimiento = br.readLine();
             }
@@ -217,7 +217,7 @@ public class Partida {
             numCol = numero / 10;
             numRow = numero % 10;
             comprobarPosicion(numCol, numRow, tablero, ficha);
-            return null;
+            return posiciones;
         }
     }
 

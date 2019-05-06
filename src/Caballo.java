@@ -26,7 +26,7 @@ public class Caballo extends Ficha{
         x1=x+1;
         y1=y+2;
 
-        if((x1<7 || x1>0) && (y1<7 || y1>0)  ){
+        if((x1<7 && x1>0) && (y1<7 && y1>0)  ){
             if (!board.getIsOcupied(x1, y1)) {
                 board.setPosibleMoving(x1, y1);
             }
@@ -35,7 +35,7 @@ public class Caballo extends Ficha{
         x1=x-1;
         y1=y-2;
 
-        if((x1<7 || x1>0) && (y1<7 || y1>0) ){
+        if((x1<7 && x1>0) && (y1<7 && y1>0) ){
             if (!board.getIsOcupied(x1, y1)) {
                 board.setPosibleMoving(x1, y1);
             }
@@ -44,7 +44,7 @@ public class Caballo extends Ficha{
         x1=x+2;
         y1=y-1;
 
-        if((x1<7 || x1>0) && (y1<7 || y1>0)  ){
+        if((x1<7 && x1>0) && (y1<7 && y1>0)  ){
             if (!board.getIsOcupied(x1, y1)) {
                 board.setPosibleMoving(x1, y1);
             }
@@ -52,7 +52,7 @@ public class Caballo extends Ficha{
         x1=x+2;
         y1=y+1;
 
-        if((x1<7 || x1>0) && (y1<7 || y1>0)  ){
+        if((x1<7 && x1>0) && (y1<7 && y1>0)  ){
             if (!board.getIsOcupied(x1, y1)) {
                 board.setPosibleMoving(x1, y1);
             }
@@ -61,7 +61,7 @@ public class Caballo extends Ficha{
         x1=x-2;
         y1=y-1;
 
-        if((x1<7 || x1>0) && (y1<7 || y1>0)  ){
+        if((x1<7 && x1>0) && (y1<7 && y1>0)  ){
             if (!board.getIsOcupied(x1, y1)) {
                 board.setPosibleMoving(x1, y1);
             }
@@ -69,7 +69,7 @@ public class Caballo extends Ficha{
         x1=x-2;
         y1=y+1;
 
-        if((x1<7 || x1>0) && (y1<7 || y1>0)  ){
+        if((x1<7 && x1>0) && (y1<7 && y1>0)  ){
             if (!board.getIsOcupied(x1, y1)) {
                 board.setPosibleMoving(x1, y1);
             }
