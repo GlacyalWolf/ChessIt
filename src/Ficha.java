@@ -45,27 +45,50 @@ class Ficha{
             reyes[i]=new Rey();
         }
     }
-    void seePossibleMoving(String id, int x, int y, Board board) {
-        if (id.equalsIgnoreCase("PB")){
-            peones[1].posibleMovimiento(x, y, "BLANCO", board);
+    void seePossibleMoving(int numCol, int numRow, Board board) {
+        for (int i = 0, x = 0, y=1; i < 8; i++, x = x + 2, y = y + 2) {
+            if (peones[x].getNumCol() == numCol && peones[x].getRowNum() == numRow) {
+                peones[x].posibleMovimiento(numCol, numRow, "blanco", board);
+            }
+            if (peones[y].getNumCol() == numCol && peones[y].getRowNum() == numRow) {
+                peones[y].posibleMovimiento(numCol, numRow, "negro", board);;
+            }
         }
-        if (id.equalsIgnoreCase("PN")){
-            peones[1].posibleMovimiento(x, y, "NEGRO", board);
+        for (int i = 0, x = 0, y = 1; i < 2; i++, x = x + 2, y = y + 2) {
+            if (torres[x].getNumCol() == numCol && torres[x].getRowNum() == numRow) {
+                torres[x].posibleMovimiento(numCol, numRow, board);
+            }
+            if (torres[y].getNumCol() == numCol && torres[y].getRowNum() == numRow) {
+                torres[y].posibleMovimiento(numCol, numRow, board);
+            }
         }
-        if (id.equalsIgnoreCase("T")){
-            torres[1].posibleMovimiento(x, y, board);
+        for (int i = 0, x = 0, y = 0; i < 2; i++, x = x + 2, y = y + 2) {
+            if (caballos[x].getNumCol() == numCol && caballos[x].getRowNum() == numRow) {
+                caballos[x].posibleMovimiento(numCol, numRow, board);
+            }
+            if (caballos[y].getNumCol() == numCol && caballos[y].getRowNum() == numRow) {
+                caballos[y].posibleMovimiento(numCol, numRow, board);
+            }
         }
-        if (id.equalsIgnoreCase("C")){
-            caballos[1].posibleMovimiento(x, y, board);
+        for (int i = 0, x = 0, y = 0; i < 2; i++, x = x + 2, y = y + 2) {
+            if (alfiles[x].getNumCol() == numCol && alfiles[x].getRowNum() == numRow) {
+                alfiles[x].posibleMovimiento(numCol, numRow, board);
+            }
+            if (alfiles[y].getNumCol() == numCol && alfiles[y].getRowNum() == numRow) {
+                alfiles[y].posibleMovimiento(numCol, numRow, board);
+            }
         }
-        if (id.equalsIgnoreCase("A")){
-            alfiles[1].posibleMovimiento(x, y, board);
+        if (reinas[0].getNumCol() == numCol && reinas[0].getRowNum() == numRow) {
+            reinas[0].posibleMovimiento(numCol, numRow, board);
         }
-        if (id.equalsIgnoreCase("D")){
-            reinas[1].posibleMovimiento(x, y, board);
+        if (reinas[1].getNumCol() == numCol && reinas[1].getRowNum() == numRow) {
+            reinas[1].posibleMovimiento(numCol, numRow, board);
         }
-        if (id.equalsIgnoreCase("R")){
-            reyes[1].posibleMovimiento(x, y, board);
+        if (reyes[0].getNumCol() == numCol && reyes[0].getRowNum() == numRow) {
+            reyes[0].posibleMovimiento(numCol, numRow, board);
+        }
+        if (reyes[1].getNumCol() == numCol && reyes[1].getRowNum() == numRow) {
+            reyes[1].posibleMovimiento(numCol, numRow, board);
         }
     }
     void setRowNum(int rowNum) {

@@ -135,10 +135,9 @@ public class Partida {
             movimientosList = comprobarPosicion(numCol, numRow, tablero, ficha);
             numCol = movimientosList[0];
             numRow = movimientosList[1];
-
             // Ver si posicion de blancas es valido
             String id = findIdForPiecesPlayer1(numCol, numRow, ficha);
-            ficha.seePossibleMoving(id, numCol, numRow, tablero);
+            ficha.seePossibleMoving(numCol, numRow, tablero);
         }
     }
     private static boolean isNumeric(String cadena){
@@ -201,11 +200,7 @@ public class Partida {
     protected int[] comprobarPosicion(int numCol, int numRow, Board tablero, Ficha ficha) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int[] posiciones = new int[2];
-        if (tablero.getIsOcupied(numCol, numRow) && ficha.getJugador() == 1) {
-            posiciones[0] = numCol;
-            posiciones[1] = numRow;
-            return posiciones;
-        } else {
+        while(!tablero.getIsOcupied(numCol, numRow) && ficha.getJugador() == 1) {
             System.out.println("La posicion no corresponde a ninguna de tus casillas, vuelve a introducir otra");
             String movimiento = br.readLine();
             while (movimiento.length() != 2) {
@@ -216,9 +211,10 @@ public class Partida {
             int numero = Integer.parseInt(movimiento);
             numCol = numero / 10;
             numRow = numero % 10;
-            comprobarPosicion(numCol, numRow, tablero, ficha);
-            return posiciones;
         }
+        posiciones[0] = numCol;
+        posiciones[1] = numRow;
+        return posiciones;
     }
 
     protected String findIdForPiecesPlayer1(int numCol, int numRow, Ficha ficha) {

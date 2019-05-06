@@ -17,7 +17,7 @@ public class Caballo extends Ficha{
         int y1=y+2;
         int x1=x-1;
 
-        if((x1<7 || x1>0) && (y1<7 || y1>0) ){
+        if((x1<7 && x1>0) && (y1<7 && y1>0) ){
             if (!board.getIsOcupied(x1, y1)) {
                 board.setPosibleMoving(x1, y1);
             }
